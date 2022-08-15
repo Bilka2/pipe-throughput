@@ -1,0 +1,8 @@
+{
+  "name": "pipe-throughput",
+  "version": "0.0.1",
+  "title": "Pipe throughput testing",
+  "author": "Bilka",
+  "factorio_version": "1.1",
+  "description": "Adds a scenario to easily test pipe throughput"
+}
