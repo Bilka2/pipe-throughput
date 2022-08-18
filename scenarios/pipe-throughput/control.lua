@@ -13,14 +13,14 @@ local function spawn_row(length, surface, offset)
   global.rows[global.row_index] = {}
   local row = global.rows[global.row_index]
   row.length = length
-  row.source = surface.create_entity{name="storage-tank", position = { x = offset - 3 - pump_size, y = row_height + offset - 1}, force = "player"}
-  row.sink = surface.create_entity{name="storage-tank", position = { x = offset + length + pump_size + 2, y = row_height + offset + 1}, force = "player"}
+  row.source = surface.create_entity{name="storage-tank", position = { x = offset + length + pump_size + 2, y = row_height + offset + 1}, force = "player"}
+  row.sink = surface.create_entity{name="storage-tank", position = { x = offset - 3 - pump_size, y = row_height + offset - 1}, force = "player"}
 
   row.pumps = {}
-  row.pumps[1] = surface.create_entity{name="pump", position = { x = offset - pump_size, y = row_height + offset}, direction = defines.direction.east, force = "player"}
-  surface.create_entity{name="substation", position = { x = offset - 5 - pump_size, y = row_height + offset}, force = "player"}
-  row.pumps[2] = surface.create_entity{name="pump", position = { x = offset + length + pump_size, y = row_height + offset}, direction = defines.direction.east, force = "player"}
+  row.pumps[2] = surface.create_entity{name="pump", position = { x = offset + length + pump_size, y = row_height + offset}, direction = defines.direction.west, force = "player"}
   surface.create_entity{name="substation", position = { x = offset + length + pump_size + 5, y = row_height + offset}, force = "player"}
+  row.pumps[1] = surface.create_entity{name="pump", position = { x = offset - pump_size, y = row_height + offset}, direction = defines.direction.west, force = "player"}
+  surface.create_entity{name="substation", position = { x = offset - 5 - pump_size, y = row_height + offset}, force = "player"}
   for _, pump in pairs(row.pumps) do
     rendering.draw_text{text=tostring(length), surface = surface, color = {1,1,1}, scale = 2, target = pump}
   end
@@ -89,7 +89,7 @@ local function throughput_by_formula(length)
   end
 end
 
-local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_system&oldid=189491
+local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_system&oldid=189716
 {
   [1] = 6000,
   [2] = 3000,
@@ -111,7 +111,7 @@ local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_s
   [150] = 1022,
   [200] = 1004,
   [201] = 999,
-  [261] = 800,
+  [261] = 799,
   [300] = 707,
   [400] = 546,
   [500] = 445,

@@ -165,7 +165,7 @@ length: 163 measured: 1020 calculated: 1020
 length: 164 measured: 1020 calculated: 1020
 length: 165 measured: 1020 calculated: 1020
 length: 166 measured: 1020 calculated: 1020
-length: 167 measured: 1020 calculated: 1020
+length: 167 measured: 1019 calculated: 1020 formula wrong
 length: 168 measured: 1019 calculated: 1019
 length: 169 measured: 1019 calculated: 1019
 length: 170 measured: 1019 calculated: 1019
@@ -259,7 +259,7 @@ length: 257 measured: 810 calculated: 810
 length: 258 measured: 808 calculated: 808
 length: 259 measured: 805 calculated: 805
 length: 260 measured: 802 calculated: 802
-length: 261 measured: 799 calculated: 800 formula wrong wiki wrong, wiki has 800
+length: 261 measured: 799 calculated: 800 formula wrong
 length: 262 measured: 797 calculated: 797
 length: 263 measured: 794 calculated: 794
 length: 264 measured: 792 calculated: 792
@@ -959,7 +959,7 @@ length: 957 measured: 240 calculated: 240
 length: 958 measured: 240 calculated: 240
 length: 959 measured: 240 calculated: 240
 length: 960 measured: 240 calculated: 240
-length: 961 measured: 240 calculated: 240
+length: 961 measured: 239 calculated: 240 formula wrong
 length: 962 measured: 239 calculated: 239
 length: 963 measured: 239 calculated: 239
 length: 964 measured: 239 calculated: 239
