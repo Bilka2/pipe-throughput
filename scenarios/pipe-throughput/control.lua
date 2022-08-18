@@ -1,7 +1,8 @@
 ---@param length int
 ---@param surface LuaSurface
 ---@param offset int
-local function spawn_row(length, surface, offset)
+---@param reverse boolean Whether the pipes between the pumps should be placed in reverse build order
+local function spawn_row(length, surface, offset, reverse)
   local row_height = global.row_index * 3
   local pump_size = 2/2
 
@@ -26,8 +27,15 @@ local function spawn_row(length, surface, offset)
   end
 
   assert(length >= 1)
-  for i=0,length-1 do
-    surface.create_entity{name="pipe", position = { x = offset + i, y = row_height + offset}, force = "player"}
+
+  if not reverse then
+    for i=0,length-1 do
+      surface.create_entity{name="pipe", position = { x = offset + i, y = row_height + offset}, force = "player"}
+    end
+  else --reverse
+    for i=length-1,0,-1 do
+      surface.create_entity{name="pipe", position = { x = offset + i, y = row_height + offset}, force = "player"}
+    end
   end
 
   global.row_index = global.row_index + 1
@@ -60,7 +68,11 @@ script.on_event(defines.events.on_player_created, function(event)
   global.row_index = 1
   local max_pipe_length = 1001 -- change wanted pipe length here, e.g. to 601 or 201
   for i=1,max_pipe_length do
-    spawn_row(i, surface, offset)
+    spawn_row(i, surface, offset, false)
+  end
+
+  for i=1,max_pipe_length do
+    spawn_row(i, surface, offset, true)
   end
 
   -- Enable map editor for the player
@@ -89,7 +101,7 @@ local function throughput_by_formula(length)
   end
 end
 
-local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_system&oldid=189491
+local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_system&oldid=189716
 {
   [1] = 6000,
   [2] = 3000,
@@ -111,7 +123,7 @@ local throughput_from_wiki = --https://wiki.factorio.com/index.php?title=Fluid_s
   [150] = 1022,
   [200] = 1004,
   [201] = 999,
-  [261] = 800,
+  [261] = 799,
   [300] = 707,
   [400] = 546,
   [500] = 445,
@@ -135,28 +147,39 @@ script.on_nth_tick(10, function(event)
       game.print("Pumping speed values should be balanced out (verified with pipe lengths up to 1001), you can now read them from the tooltips")
     else -- custom factorio version that can read pump speed with mods
       game.print("Pumping speed values should be balanced out. If not, pipe lengths with problem are printed here in chat")
-      local output_file = "pumping-speeds.txt"
+      local output_file = "pumping-speeds-build-order.txt"
       game.write_file(output_file, "Pumping speeds by length of pipe between two pumps:\n", false)
 
+      ---@type table<int, float[]>
+      local measured_by_length = {}
       for _, row in pairs(global.rows) do
-        -- flooring read pump speeds because the game floors for the pump tooltip
-        local in_pump_speed = math.floor(row.pumps[1].pump_speed)
-        local formula_speed = throughput_by_formula(row.length)
-        game.write_file(output_file, "length: " .. row.length .. " measured: " .. in_pump_speed .. " calculated: " .. formula_speed, true)
-
-        if in_pump_speed ~= formula_speed then
-          game.write_file(output_file, " formula wrong", true)
+        if not measured_by_length[row.length] then
+          measured_by_length[row.length] = {}
         end
-        local wiki_speed = throughput_from_wiki[row.length]
-        if wiki_speed and wiki_speed ~= in_pump_speed then
-          game.write_file(output_file, " wiki wrong, wiki has " .. wiki_speed, true)
+        table.insert(measured_by_length[row.length], row.pumps[1].pump_speed)
+        table.insert(measured_by_length[row.length], row.pumps[2].pump_speed)
+      end
+
+      for length, pumps in pairs(measured_by_length) do
+        game.write_file(output_file, "length: " .. length, true)
+
+        for i = 1, #pumps, 2 do
+          -- flooring read pump speeds because the game floors for the pump tooltip
+          local in_pump_speed = math.floor(pumps[i])
+          game.write_file(output_file, " measured" .. i .. ": " .. in_pump_speed, true)
+
+          if i>2 then
+            if in_pump_speed ~= math.floor(pumps[i-2]) then
+              game.write_file(output_file, " different speed" .. i, true)
+            end
+          end
+
+          if (pumps[i] - pumps[i+1]) > 0.05 then
+            game.print(length) -- input and output pump do not have the same throughput. Most likely it needs to run longer to balance out
+          end
         end
 
         game.write_file(output_file, "\n", true)
-
-        if (row.pumps[1].pump_speed - row.pumps[2].pump_speed) > 0.05 then
-          game.print(row.length) -- input and output pump do not have the same throughput. Most likely it needs to run longer to balance out
-        end
       end
     end
   end
