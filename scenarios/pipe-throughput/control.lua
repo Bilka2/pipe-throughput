@@ -132,7 +132,7 @@ script.on_nth_tick(10, function(event)
     game.tick_paused = true
     game.speed = 1
 
-    if false then -- set to false when using a factorio version where you can read pump speed with mods
+    if true then -- set to false when using a factorio version where you can read pump speed with mods
       game.print("Pumping speed values should be balanced out (verified with pipe lengths up to 1001), you can now read them from the tooltips")
     else -- custom factorio version that can read pump speed with mods
       game.print("Pumping speed values should be balanced out. If not, pipe lengths with problem are printed here in chat")
