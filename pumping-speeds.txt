@@ -165,7 +165,7 @@ length: 163 measured: 1020 calculated: 1020
 length: 164 measured: 1020 calculated: 1020
 length: 165 measured: 1020 calculated: 1020
 length: 166 measured: 1020 calculated: 1020
-length: 167 measured: 1020 calculated: 1020
+length: 167 measured: 1019 calculated: 1020 formula wrong
 length: 168 measured: 1019 calculated: 1019
 length: 169 measured: 1019 calculated: 1019
 length: 170 measured: 1019 calculated: 1019
@@ -959,7 +959,7 @@ length: 957 measured: 240 calculated: 240
 length: 958 measured: 240 calculated: 240
 length: 959 measured: 240 calculated: 240
 length: 960 measured: 240 calculated: 240
-length: 961 measured: 240 calculated: 240
+length: 961 measured: 239 calculated: 240 formula wrong
 length: 962 measured: 239 calculated: 239
 length: 963 measured: 239 calculated: 239
 length: 964 measured: 239 calculated: 239

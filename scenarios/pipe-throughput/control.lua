@@ -14,14 +14,14 @@ local function spawn_row(length, surface, offset)
   global.rows[global.row_index] = {}
   local row = global.rows[global.row_index]
   row.length = length
-  row.source = surface.create_entity{name="storage-tank", position = {  x = row_height + offset - 1, y = offset - 3 - pump_size}, force = "player"}
-  row.sink = surface.create_entity{name="storage-tank", position = { x = row_height + offset + 1, y = offset + length + pump_size + 2}, force = "player"}
+  row.sink = surface.create_entity{name="storage-tank", position = {  x = row_height + offset - 1, y = offset - 3 - pump_size}, force = "player"}
+  row.source = surface.create_entity{name="storage-tank", position = { x = row_height + offset + 1, y = offset + length + pump_size + 2}, force = "player"}
 
   row.pumps = {}
-  row.pumps[2] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset + length + pump_size}, direction = defines.direction.south, force = "player"}
-  surface.create_entity{name="substation", position = { x = row_height + offset, y = offset + length + pump_size + 5}, force = "player"}
-  row.pumps[1] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset - pump_size}, direction = defines.direction.south, force = "player"}
+  row.pumps[1] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset - pump_size}, direction = defines.direction.north, force = "player"}
   surface.create_entity{name="substation", position = { x = row_height + offset, y = offset - 5 - pump_size}, force = "player"}
+  row.pumps[2] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset + length + pump_size}, direction = defines.direction.north, force = "player"}
+  surface.create_entity{name="substation", position = { x = row_height + offset, y = offset + length + pump_size + 5}, force = "player"}
   for _, pump in pairs(row.pumps) do
     rendering.draw_text{text=tostring(length), surface = surface, color = {1,1,1}, scale = 2, target = pump}
   end
