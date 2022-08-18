@@ -165,7 +165,7 @@ length: 163 measured: 1020 calculated: 1020
 length: 164 measured: 1020 calculated: 1020
 length: 165 measured: 1020 calculated: 1020
 length: 166 measured: 1020 calculated: 1020
-length: 167 measured: 1019 calculated: 1020 formula wrong
+length: 167 measured: 1019 calculated: 1020 formula wrong 0.00341796875
 length: 168 measured: 1019 calculated: 1019
 length: 169 measured: 1019 calculated: 1019
 length: 170 measured: 1019 calculated: 1019
@@ -199,7 +199,7 @@ length: 197 measured: 1016 calculated: 1016
 length: 198 measured: 1012 calculated: 1012
 length: 199 measured: 1008 calculated: 1008
 length: 200 measured: 1004 calculated: 1004
-length: 201 measured: 999 calculated: 1000 formula wrong
+length: 201 measured: 999 calculated: 1000 formula wrong 0.0010986328125
 length: 202 measured: 995 calculated: 995
 length: 203 measured: 991 calculated: 991
 length: 204 measured: 987 calculated: 987
@@ -209,7 +209,7 @@ length: 207 measured: 975 calculated: 975
 length: 208 measured: 971 calculated: 971
 length: 209 measured: 967 calculated: 967
 length: 210 measured: 963 calculated: 963
-length: 211 measured: 959 calculated: 960 formula wrong
+length: 211 measured: 959 calculated: 960 formula wrong 0.001708984375
 length: 212 measured: 956 calculated: 956
 length: 213 measured: 952 calculated: 952
 length: 214 measured: 948 calculated: 948
@@ -259,7 +259,7 @@ length: 257 measured: 810 calculated: 810
 length: 258 measured: 808 calculated: 808
 length: 259 measured: 805 calculated: 805
 length: 260 measured: 802 calculated: 802
-length: 261 measured: 799 calculated: 800 formula wrong
+length: 261 measured: 799 calculated: 800 formula wrong 0.00146484375
 length: 262 measured: 797 calculated: 797
 length: 263 measured: 794 calculated: 794
 length: 264 measured: 792 calculated: 792
@@ -279,7 +279,7 @@ length: 277 measured: 759 calculated: 759
 length: 278 measured: 757 calculated: 757
 length: 279 measured: 754 calculated: 754
 length: 280 measured: 752 calculated: 752
-length: 281 measured: 749 calculated: 750 formula wrong
+length: 281 measured: 749 calculated: 750 formula wrong 0.0010986328125
 length: 282 measured: 747 calculated: 747
 length: 283 measured: 745 calculated: 745
 length: 284 measured: 743 calculated: 743
@@ -334,7 +334,7 @@ length: 332 measured: 646 calculated: 646
 length: 333 measured: 645 calculated: 645
 length: 334 measured: 643 calculated: 643
 length: 335 measured: 641 calculated: 641
-length: 336 measured: 639 calculated: 640 formula wrong
+length: 336 measured: 639 calculated: 640 formula wrong 0.00079345703125
 length: 337 measured: 638 calculated: 638
 length: 338 measured: 636 calculated: 636
 length: 339 measured: 634 calculated: 634
@@ -343,7 +343,7 @@ length: 341 measured: 631 calculated: 631
 length: 342 measured: 629 calculated: 629
 length: 343 measured: 628 calculated: 628
 length: 344 measured: 626 calculated: 626
-length: 345 measured: 624 calculated: 625 formula wrong
+length: 345 measured: 624 calculated: 625 formula wrong 0.0010986328125
 length: 346 measured: 623 calculated: 623
 length: 347 measured: 621 calculated: 621
 length: 348 measured: 620 calculated: 620
@@ -359,7 +359,7 @@ length: 357 measured: 606 calculated: 606
 length: 358 measured: 604 calculated: 604
 length: 359 measured: 603 calculated: 603
 length: 360 measured: 601 calculated: 601
-length: 361 measured: 599 calculated: 600 formula wrong
+length: 361 measured: 599 calculated: 600 formula wrong 0.0013427734375
 length: 362 measured: 598 calculated: 598
 length: 363 measured: 597 calculated: 597
 length: 364 measured: 595 calculated: 595
@@ -439,7 +439,7 @@ length: 437 measured: 504 calculated: 504
 length: 438 measured: 503 calculated: 503
 length: 439 measured: 502 calculated: 502
 length: 440 measured: 501 calculated: 501
-length: 441 measured: 499 calculated: 500 formula wrong
+length: 441 measured: 499 calculated: 500 formula wrong 0.00054931640625
 length: 442 measured: 498 calculated: 498
 length: 443 measured: 497 calculated: 497
 length: 444 measured: 496 calculated: 496
@@ -459,7 +459,7 @@ length: 457 measured: 483 calculated: 483
 length: 458 measured: 482 calculated: 482
 length: 459 measured: 481 calculated: 481
 length: 460 measured: 480 calculated: 480
-length: 461 measured: 479 calculated: 480 formula wrong
+length: 461 measured: 479 calculated: 480 formula wrong 0.000885009765625
 length: 462 measured: 479 calculated: 479
 length: 463 measured: 478 calculated: 478
 length: 464 measured: 477 calculated: 477
@@ -559,7 +559,7 @@ length: 557 measured: 402 calculated: 402
 length: 558 measured: 402 calculated: 402
 length: 559 measured: 401 calculated: 401
 length: 560 measured: 400 calculated: 400
-length: 561 measured: 399 calculated: 400 formula wrong
+length: 561 measured: 399 calculated: 400 formula wrong 0.000762939453125
 length: 562 measured: 399 calculated: 399
 length: 563 measured: 398 calculated: 398
 length: 564 measured: 398 calculated: 398
@@ -584,7 +584,7 @@ length: 582 measured: 386 calculated: 386
 length: 583 measured: 385 calculated: 385
 length: 584 measured: 385 calculated: 385
 length: 585 measured: 384 calculated: 384
-length: 586 measured: 383 calculated: 384 formula wrong
+length: 586 measured: 383 calculated: 384 formula wrong 0.000701904296875
 length: 587 measured: 383 calculated: 383
 length: 588 measured: 382 calculated: 382
 length: 589 measured: 382 calculated: 382
@@ -599,7 +599,7 @@ length: 597 measured: 377 calculated: 377
 length: 598 measured: 376 calculated: 376
 length: 599 measured: 376 calculated: 376
 length: 600 measured: 375 calculated: 375
-length: 601 measured: 374 calculated: 375 formula wrong
+length: 601 measured: 374 calculated: 375 formula wrong 0.00067138671875
 length: 602 measured: 374 calculated: 374
 length: 603 measured: 373 calculated: 373
 length: 604 measured: 373 calculated: 373
@@ -709,7 +709,7 @@ length: 707 measured: 321 calculated: 321
 length: 708 measured: 321 calculated: 321
 length: 709 measured: 320 calculated: 320
 length: 710 measured: 320 calculated: 320
-length: 711 measured: 319 calculated: 320 formula wrong
+length: 711 measured: 319 calculated: 320 formula wrong 0.00054931640625
 length: 712 measured: 319 calculated: 319
 length: 713 measured: 319 calculated: 319
 length: 714 measured: 318 calculated: 318
@@ -759,7 +759,7 @@ length: 757 measured: 301 calculated: 301
 length: 758 measured: 301 calculated: 301
 length: 759 measured: 300 calculated: 300
 length: 760 measured: 300 calculated: 300
-length: 761 measured: 299 calculated: 300 formula wrong
+length: 761 measured: 299 calculated: 300 formula wrong 0.00067138671875
 length: 762 measured: 299 calculated: 299
 length: 763 measured: 299 calculated: 299
 length: 764 measured: 298 calculated: 298
@@ -919,7 +919,7 @@ length: 917 measured: 251 calculated: 251
 length: 918 measured: 250 calculated: 250
 length: 919 measured: 250 calculated: 250
 length: 920 measured: 250 calculated: 250
-length: 921 measured: 249 calculated: 250 formula wrong
+length: 921 measured: 249 calculated: 250 formula wrong 0.0007476806640625
 length: 922 measured: 249 calculated: 249
 length: 923 measured: 249 calculated: 249
 length: 924 measured: 249 calculated: 249
@@ -959,7 +959,7 @@ length: 957 measured: 240 calculated: 240
 length: 958 measured: 240 calculated: 240
 length: 959 measured: 240 calculated: 240
 length: 960 measured: 240 calculated: 240
-length: 961 measured: 239 calculated: 240 formula wrong
+length: 961 measured: 239 calculated: 240 formula wrong 0.0018768310546875
 length: 962 measured: 239 calculated: 239
 length: 963 measured: 239 calculated: 239
 length: 964 measured: 239 calculated: 239

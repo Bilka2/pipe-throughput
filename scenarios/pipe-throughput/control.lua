@@ -84,9 +84,9 @@ local function throughput_by_formula(length)
 
   assert(length >= 1)
   if length >= 1 and length <= 197 then
-    return math.floor(10000 / (3 * length - 1) + 1000)
+    return 10000 / (3 * length - 1) + 1000
   else
-    return math.floor(240000 / (length + 39))
+    return 240000 / (length + 39)
   end
 end
 
@@ -142,11 +142,11 @@ script.on_nth_tick(10, function(event)
       for _, row in pairs(global.rows) do
         -- flooring read pump speeds because the game floors for the pump tooltip
         local in_pump_speed = math.floor(row.pumps[1].pump_speed)
-        local formula_speed = throughput_by_formula(row.length)
+        local formula_speed = math.floor(throughput_by_formula(row.length))
         game.write_file(output_file, "length: " .. row.length .. " measured: " .. in_pump_speed .. " calculated: " .. formula_speed, true)
 
         if in_pump_speed ~= formula_speed then
-          game.write_file(output_file, " formula wrong", true)
+          game.write_file(output_file, " formula wrong " .. throughput_by_formula(row.length) - row.pumps[1].pump_speed, true)
         end
         local wiki_speed = throughput_from_wiki[row.length]
         if wiki_speed and wiki_speed ~= in_pump_speed then
