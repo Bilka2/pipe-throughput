@@ -18,9 +18,9 @@ local function spawn_row(length, surface, offset)
   row.source = surface.create_entity{name="storage-tank", position = { x = row_height + offset + 1, y = offset + length + pump_size + 2}, force = "player"}
 
   row.pumps = {}
-  row.pumps[1] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset - pump_size}, direction = defines.direction.north, force = "player"}
+  row.pumps[2] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset - pump_size}, direction = defines.direction.north, force = "player"}
   surface.create_entity{name="substation", position = { x = row_height + offset, y = offset - 5 - pump_size}, force = "player"}
-  row.pumps[2] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset + length + pump_size}, direction = defines.direction.north, force = "player"}
+  row.pumps[1] = surface.create_entity{name="pump", position = { x = row_height + offset, y = offset + length + pump_size}, direction = defines.direction.north, force = "player"}
   surface.create_entity{name="substation", position = { x = row_height + offset, y = offset + length + pump_size + 5}, force = "player"}
   for _, pump in pairs(row.pumps) do
     rendering.draw_text{text=tostring(length), surface = surface, color = {1,1,1}, scale = 2, target = pump}
@@ -68,7 +68,7 @@ script.on_event(defines.events.on_player_created, function(event)
   local player = game.get_player(event.player_index) ---@cast player -nil
   player.toggle_map_editor()
   game.tick_paused = false
-  game.speed = 10
+  game.speed = 6
   player.teleport({0, 0}, "test")
 end)
 
@@ -128,7 +128,7 @@ script.on_nth_tick(10, function(event)
   end
 
   -- pause the game once the throughput should be stable 
-  if event.tick == 60*60*9 then -- 7 minutes are enough for up to pipe length 300
+  if event.tick == 60*60*15 then -- 7 minutes are enough for up to pipe length 300
     game.tick_paused = true
     game.speed = 1
 
@@ -138,6 +138,8 @@ script.on_nth_tick(10, function(event)
       game.print("Pumping speed values should be balanced out. If not, pipe lengths with problem are printed here in chat")
       local output_file = "pumping-speeds.txt"
       game.write_file(output_file, "Pumping speeds by length of pipe between two pumps:\n", false)
+      local float_output_file = "float-pumping-speeds.txt"
+      game.write_file(float_output_file, "Float pumping speeds by length of pipe between two pumps:\n", false)
 
       for _, row in pairs(global.rows) do
         -- flooring read pump speeds because the game floors for the pump tooltip
@@ -155,9 +157,11 @@ script.on_nth_tick(10, function(event)
 
         game.write_file(output_file, "\n", true)
 
-        if (row.pumps[1].pump_speed - row.pumps[2].pump_speed) > 0.05 then
+        if (row.pumps[1].pump_speed - row.pumps[2].pump_speed) > 0.001 then
           game.print(row.length) -- input and output pump do not have the same throughput. Most likely it needs to run longer to balance out
         end
+
+        game.write_file(float_output_file, "length: " .. row.length .. " measured in pump: " .. row.pumps[1].pump_speed .. " measured out pump: " .. row.pumps[2].pump_speed .. "\n", true)
       end
     end
   end
